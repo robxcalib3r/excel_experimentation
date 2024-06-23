@@ -1,3 +1,6 @@
-.venv
+.*venv*
 *.xlsx
 *.xlsm
+*.csv
+test.py
+.python-version

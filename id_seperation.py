@@ -72,6 +72,7 @@ def cmp_ids(ids_to_cmp, ids_from_list):
 
 if __name__ == '__main__':
     disable_path = "disable user list.xlsx"
+    disable_corp_path = "disable user list_wgbd.xlsx.xls"
     resign_path = "Resign_employee_jul23_to_Jun24_report.xls"
     # ids = ID_separate_accnt(path, 4)
     # print(ids)
@@ -79,9 +80,12 @@ if __name__ == '__main__':
     ids = ID_separate_name(disable_path, 1)
     # save2csv(ids, disable_path, 2)
 
+    df_corp_ad = pd.read_excel(disable_corp_path)
+    ids_corp_ad = df_corp_ad['SamAccountName'].tolist()
+
     df_resigned = pd.read_excel(resign_path)
     resigned_ids = df_resigned['EMP_ID'].tolist()
-    print(len(resigned_ids))
+    # print(len(resigned_ids))
 
     ad_status = cmp_ids(resigned_ids, ids)
 
